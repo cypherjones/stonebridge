@@ -48,11 +48,19 @@
 
     <link href="<?php bloginfo('template_directory' ); ?>/css/bootstrap.css" rel="stylesheet">
     <script src="<?php bloginfo('template_directory' ); ?>/js/bootstrap.js" type='text/javascript'></script>
+
+    <!-- flexslider -->
+
+    <!-- Place somewhere in the <head> of your document -->
+
+    <link rel="stylesheet" href="<?php bloginfo('template_directory' ); ?>/css/flexslider.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="<?php bloginfo('template_directory' ); ?>/js/jquery.flexslider.js"></script>
     
     <!-- smooth links -->
     <script>
     $(function() {
-      $('[href^=#]').not('#ourWorkCarousel a, #ourServiceCarousel a, #mainSvcCarousel a').click(function() {
+      $('[href^=#]').not('#ourWorkCarousel a, #ourServiceCarousel a, #mainSvcCarousel a, #mainSvcCarousel2 a').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -69,7 +77,7 @@
 
 
 <body <?php body_class(); ?>>
-<?php   $logo         = get_field('company_logo', 'option');?>
+<?php   $logo         = get_field('company_logo_large', 'option');?>
   <div id="main_nav">
       <div id="header_nav" class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">

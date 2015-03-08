@@ -14,43 +14,78 @@
 
   <div id="page">
     
-      <section id="page_header" class="background" style="background-image:url('<?php echo $header_img ?>');">
+      <section id="<?php echo $page_slug ?>_header" class="background" style="background-image:url('<?php echo $header_img ?>');">
         <div class="container">
           <div class="row">
             <div class="col-xs-12" >
-              <div class="header_logo not_mobile">
-                <img src="<?php echo $logo_lrg ?>" alt="">
-              </div>
-              <div class="header_title">
-                <h3>
+              
+              <?php if(is_mobile()) : ?>
+
+                <div class="header_title mbl">
+                  <h3>
+                    <?php 
+
+                      if(! empty($header_title)) : 
+
+                      echo $header_title;
+
+                      endif;
+
+                    ?>
+                  </h3>
+                </div>
+                <div class="header_msg mbl">
                   <?php 
 
-                    if(! empty($header_title)) : 
+                    if(! empty($header_msg)) :
 
-                    echo $header_title;
+                    echo $header_msg;
 
                     endif;
 
-                  ?>
-                </h3>
-              </div>
-              <div class="header_msg">
-                <?php 
+                   ?>
+                </div>
 
-                  if(! empty($header_msg)) :
+              <?php else : ?>
 
-                  echo $header_msg;
+                <div class="header_logo">
+                  <a href="<?php bloginfo('url' );?>"><img src="<?php echo $logo_lrg ?>" alt=""></a>
+                </div>
 
-                  endif;
+                <div class="header_title">
+                  <h3>
+                    <?php 
 
-                 ?>
-              </div>
-              <div class=""> 
+                      if(! empty($header_title)) : 
+
+                      echo $header_title;
+
+                      endif;
+
+                    ?>
+                  </h3>
+                </div>
+                <div class="header_msg">
+                  <?php 
+
+                    if(! empty($header_msg)) :
+
+                    echo $header_msg;
+
+                    endif;
+
+                   ?>
+                </div>
+
+              <?php endif; ?>
+            </div>
+          </div>
+          <div class="row">
+            <div class="page_down_container"> 
                 <div class="page_down">
                   <a href="#our_work"><i class="fa fa-angle-down"></i></a>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
@@ -79,22 +114,20 @@
               <div class="col-xs-12">
 
               <?php if (is_mobile()) : ?>
+              <div class="flexslider">
+                <ul class="slides">
+                 
+                  <?php if(have_rows('services')) : while (have_rows('services')) : the_row(); ?>
 
-                <div id="ourServiceCarousel" class="carousel slide">
-                  <div class="carousel-inner">
-
-                    <?php if(have_rows('services')) : while (have_rows('services')) : the_row(); ?>
-
-                    <?php 
+                   <?php 
 
                       $service     = get_sub_field('service');
                       $icon        = get_sub_field('icon');
                       $description = get_sub_field('description');
 
-                    ?>
-
-                    <div class="item">
-
+                     ?>
+                    
+                    <li>
                       <div class="icon">
 
                         <?php if(! empty($icon)) : ?>
@@ -107,7 +140,9 @@
                         <?php if(! empty($service)) : ?>
                           <h3><?php echo $service ?></h3>
                         <?php endif; ?>
-                        
+
+                        <div class="line"></div>
+                  
                       </div>
                       <div class="description">
 
@@ -117,19 +152,17 @@
                         
                       </div>
                       <div class="btn services">
-                        <a href="<?php bloginfo('template_directory' ); ?>/our-services">View Gallery</a>
+                        <a href="<?php bloginfo('url' ); ?>/our-services">View Gallery</a>
                       </div>
+                    </li>
 
-                    </div>
-                    <?php endwhile; endif; ?>
+                  <?php endwhile; endif; ?>
                   
-                  </div>
+                </ul>
 
-                  <div class="pull-center">
-                    <a class="carousel-control left" href="#ourServiceCarousel" data-slide="prev">‹</a>
-                    <a class="carousel-control right" href="#ourServiceCarousel" data-slide="next">›</a>
-                  </div>
-                </div>
+              </div>
+            </div>
+          </div>
 
               <?php else : ?>
 
@@ -158,6 +191,8 @@
                         <?php if(! empty($service)) : ?>
                           <h3><?php echo $service ?></h3>
                         <?php endif; ?>
+
+                        <div class="line"></div>
                         
                       </div>
                       <div class="description">
@@ -165,7 +200,7 @@
                         <?php if(! empty($description)) : ?>
                           <p><?php echo $description ?></p>
                         <?php endif; ?>
-                        
+
                       </div>
                       <div class="btn services">
                         <a href="<?php bloginfo('url' ); ?>/our-services">View Gallery</a>
@@ -322,22 +357,22 @@
            endif; 
 
           ?>
-          <div class="contact_meta not_mobile">
-            <div class="number">
-              <?php if(get_field('phone_number', 'option')) { ?>
+            <div class="contact_meta not_mobile">
+              <div class="number">
+                <?php if(get_field('phone_number', 'option')) { ?>
 
-                <p><a href="tel:1<?php the_field('phone_number', 'option' ) ?>"><?php the_field('phone_number', 'option') ?></a></p>
+                  <p><a href="tel:1<?php the_field('phone_number', 'option' ) ?>"><?php the_field('phone_number', 'option') ?></a></p>
 
-              <?php } ?>
-            </div>
-            <div class="email">
-                <?php if(get_field('main_email', 'option')) { ?>
-
-                  <p><a href="mailto:<?php the_field('main_email', 'option') ?>"><?php the_field('main_email', 'option') ?></a></p>
-                  
                 <?php } ?>
+              </div>
+              <div class="email">
+                  <?php if(get_field('main_email', 'option')) { ?>
+
+                    <p><a href="mailto:<?php the_field('main_email', 'option') ?>"><?php the_field('main_email', 'option') ?></a></p>
+                    
+                  <?php } ?>
+              </div>
             </div>
-          </div>
           </div> 
         </div>
 
