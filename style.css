@@ -36,6 +36,12 @@ Author URI: http://beefymarketing.com
 
 body, select, input, textarea {
 	color: #000;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -131,7 +137,7 @@ a img.aligncenter {
 }
 @media screen and (min-width: 568px) {
   #header_nav .navbar-brand {
-    height: 718px;
+    height: 71px;
   }
 }
 @media screen and (min-width: 667px) {
@@ -147,21 +153,32 @@ a img.aligncenter {
 
 /* = Header 
 -------------------------------------------------------------- */
-#page_header h3,
-#page_header .header_msg {
+#home_header {
+  height: 100%;
+}
+#home_header h3,
+#home_header .header_msg { 
   color: #fff;
   font-family: 'nexa_boldregular';
+  font-size: 32px;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: 0px 1px 2px rgba(150, 150, 150, .9);
 }
-#page_header .header_msg {
+#home_header h3 {
+  letter-spacing: 2px;
+  margin-top: 50px;
+}
+#home_header .header_msg {
   font-family: 'nexa_lightregular';
+  font-size: 20px;
+  margin-top: 30px;
 }
-.background {
+#home_header.background {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: top center;
-  height: 220px;
+  background-repeat: no-repeat;
 }
 #our-services_page_header.background {
   -webkit-background-size: cover;
@@ -180,13 +197,14 @@ a img.aligncenter {
 .header_msg {
   padding-bottom: 20px;
 }
+.page_down_container {
+  margin-bottom: 20px;
+}
 .page_down {
-  position: absolute;
-  top: 95%;
+  position: relative;
   left: 45%;
   width: 30px;
   height: 30px;
-  margin-top: 0;
   line-height: 25px;
   color: #ffffff;
   text-align: center;
@@ -198,120 +216,65 @@ a img.aligncenter {
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
-#page_header a i {
+#home_header a i {
   color: #fff;
-  font-size: 18px;
-  padding: 5px;
+  font-size: 30px;
+  padding: 9px;
 }
-.header_logo.not_mobile {
-  text-align: center;
-  margin-top: 50px;
+.header_logo {
+  width: 71%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 52px;
 }
-@media screen and (min-width: 321px) {
-  .background {
-    height: 100%;
+@media screen and (min-width: 320px) {
+  #home_header {
+    height: 84%;
+  }
+  #home_header a i {
+    padding: 0;
   }
 }
 @media screen and (min-width: 375px) {
-  .background {
-    height: 255px;
-  }
-}
-@media screen and (min-width: 414px) {
-  .background {
-    height: 279px;
+  #home_header {
+    height: 78%;
   }
 }
 @media screen and (min-width: 480px) {
-  #page_header .header_msg {
-    width: 59%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
+  #home_header {
+    height: 85%;
   }
-  .background {
-    height: 324px;
-  }
-  .header_title {
-    top: 55px;
-  }
-  .header_msg {
-    position: relative;
-    top: 55px;
-  }
-  .page_down {
-    top: 140%;
-  }
-}
-@media screen and (min-width: 667px) {
-  .header_title, 
-  .header_msg {
-    width: 75%;
+  #home_header .header_title,
+  #home_header .header_msg {
+    max-width: 68%;
     margin-left: auto;
     margin-right: auto;
   }
-  .header_title {
-    margin-top: 40px;
+  #home_header.background {
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
   }
-  .background {
-    height: 450px;
-  }
-  #page_header h3 {
-    font-size: 33px;
-  }
-  #page_header .header_msg {
-    font-size: 22px;
-  }
-  .header_msg {
-    margin-top: 45px;
-  }
-  .page_down {
-    top: 119%;
-    left: 50%;
-  } 
 }
 @media screen and (max-width: 768px) {
-  .not_mobile {
+  #our-services_page_header .header_logo {
     display: none;
   }
 }
-@media screen and (min-width: 768px) {
-  .background {
-    height: 525px;
-  }
-  .header_title h3 {
-    font-size: 2.2em;
-    margin-bottom: 40px;
-  }
-  .header_msg {
-    font-size: 1.5em;
-    padding-bottom: 45px;
-  }
-} 
-@media screen and (max-width: 992px) {
-  .yes_mobile {
-    display: none;
+@media screen and (min-width: 769px) {
+  #home_header a i {
+    padding: 3px;
+    font-size: 41px;
   }
 }
-@media screen and (min-width: 992px) {
-  .background {
-    height: 685px;
-  }
-  .yes_mobile {
-    display: none;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .background {
-    height: 815px;
-  }
-}
+
 /* = Our Services
 -------------------------------------------------------------- */
 
 #our_services {
   padding-bottom: 20px;
   text-align: center;
+  background-image: url(assets/img/bkg_ptrn.png); 
+  background-repeat: repeat;
 }
 #our_services .content p,
 #our_services .title h1,
@@ -330,49 +293,65 @@ a img.aligncenter {
 }
 #our_services .content ul li {
   display: inline-block;
-  margin-bottom: 30px;
   padding-left: 15px;
   text-align: center;
   width: 310px;
 }
 #our_services .services {
-  border-bottom: 4px solid #1879ff;
   border-width: 50%;
   max-width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
+#our_services .services .line {
+  border-bottom: 4px solid #0071ba;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 28px;
+}
 .icon {
   text-align: center;
 }
-/*carousel*/
 
-#our_services .carousel-control {
-  position: absolute;
-  top: 50%;
-  left: 0px;
+/*........... flexslider ..........*/
+#our_services .flexslider {
+  background: transparent;
+}
+#our_services .flexslider .slides img {
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#our_services .flex-direction-nav a:before {
   width: 40px;
   height: 40px;
   margin-top: 0;
   font-size: 60px;
   font-weight: 100;
   line-height: 25px;
-  color: #0071ba;
-  text-align: center;
-  background: transparent;
-  border: 3px solid #0071ba;
+  border: 3px solid #0071BA;
   -webkit-border-radius: 23px;
   -moz-border-radius: 23px;
   border-radius: 23px;
-  opacity: 1.5;
+  content: "";
+  font-family: none;
 }
-#our_services .carousel-control.right {
-  left: auto;
-  right: 0px;
-} 
-#ourServiceCarousel .item {
-  height: 297px;
+#our_services .flex-direction-nav .flex-prev,
+#our_services .flex-direction-nav .flex-next {
+  background-image: url(assets/img/arrow_left.png);
+  background-repeat: no-repeat;
+  -webkit-background-size: 17px;
+  background-size: 17px;
+  background-position: 10px;
+  width: 40px;
+  height: 40px;
 }
+#our_services .flex-direction-nav .flex-next {
+  background-image: url(assets/img/arrow_right.png);
+  background-position: 13px;
+}
+
 @media screen and (min-width: 1024px) {
   .page_down {
     height: 50px;
@@ -387,7 +366,7 @@ a img.aligncenter {
 .btn.services {
   text-transform: uppercase;
   color: #fff;
-  background-color: #1879ff;
+  background-color: #0071ba;
   border-radius: 0;
   padding: 11px 33px;
 }
@@ -395,6 +374,8 @@ a img.aligncenter {
   color: #fff;
   text-decoration: none;
 }
+
+
 /*main page*/
 #our-services_page {
   background-image: url(assets/img/bkg_ptrn.png);
@@ -420,6 +401,9 @@ a img.aligncenter {
   margin-top: 70px;
   margin-left: 10px;
 }
+#our_services_main p {
+  font-size: 19px;
+}
 #our_services_main .image {
   width: 12%;
   float: left;
@@ -436,16 +420,128 @@ a img.aligncenter {
 }
 .download {
   width: 100%;
-  height: 200px;
+  height: auto;
   background-color: #0071ba;
   text-align: center;
   padding: 38px;
 }
-.download a {
+.download a,
+.download a:hover {
   text-decoration: underline;
   color: #fff;
   font-size: 26px;
 }
+@media screen and (max-width: 769px) {
+  #our_services_main .title {
+    position: relative;
+    left: 189px;
+    width: 40%;
+  }
+  #our_services_main .image {
+    position: relative;
+    left: 151px;
+    top: 27px;
+  }
+}
+@media screen and (max-width: 568px) {
+  #our_services_main .title {
+    position: relative;
+    left: 6%;
+    top: 65px;
+    margin-bottom: 58px;
+  }
+  #our_services_main .title h1 {
+    font-size: 27px;
+  }
+  #our_services_main .image {
+    position: relative;
+    left: 210px;
+    top: 12px;
+    width: 20%;
+  }
+  #our_services_main .title.bathroom {
+    left: 11%;
+  }
+  #our_services_main .title.remodels {
+    left: 13%;
+  }
+  #our_services_main .title.financing {
+    left: 14%;
+  }
+  #our_services_main p {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  #our_services_main .image {
+    left: 177px;
+  }
+  #our_services_main .title.bathroom {
+    left: 8%;
+  }
+  #our_services_main .title.remodels {
+    left: 11%;
+  }
+  #our_services_main .title.financing {
+    left: 12%;
+  }
+}
+@media screen and (max-width: 414px) {
+  #our_services_main .image {
+    left: 152px;
+  }
+  #our_services_main .title.bathroom {
+    left: 4%;
+  }
+  #our_services_main .title.remodels {
+    left: 7%;
+  }
+  #our_services_main .title.financing {
+    left: 8%;
+  }
+}
+@media screen and (max-width: 414px) {
+  #our_services_main .image {
+    left: 92px;
+    width: 33%;
+  }
+  #our_services_main .title.bathroom {
+    left: -16%;
+  }
+  #our_services_main .title.remodels {
+    left: -11%;
+  }
+  #our_services_main .title.financing {
+    left: -10%;
+  }
+}
+#mainSvcCarousel .carousel-control,
+#mainSvcCarousel2 .carousel-control {
+  position: absolute;
+  top: 50%;
+  left: 31px;
+  width: 40px;
+  height: 40px;
+  margin-top: 0;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 25px;
+  color: #ffffff;
+  text-align: center;
+  background: #222222;
+  border: 3px solid #ffffff;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  border-radius: 23px;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+#mainSvcCarousel .carousel-control.right,
+#mainSvcCarousel2 .carousel-control.right {
+  left: auto;
+  right: 30px;
+}
+
 
 
 /* = Our Work
@@ -587,10 +683,10 @@ html,body {
             transform: translate3d(0, 0, 0);
   }
 }
-@media screen and (min-width: 992px) {
+/*@media screen and (min-width: 992px) {
   .carousel .carousel-control { visibility: hidden; }
   .carousel:hover .carousel-control { visibility: visible; }
-}
+}*/
 
 /* = Our Story
 -------------------------------------------------------------- */
@@ -606,6 +702,37 @@ html,body {
   color: #0071ba;
 }
 
+/* = Pages 
+-------------------------------------------------------------- */
+#page .title h1, 
+#page .content p {
+  text-align: center;
+}
+#page .title  h1 {
+  color: #242424;
+  font-family: 'nexa_boldregular';
+  text-transform: uppercase;
+}
+#page .content p {
+  font-family: nexa_lightregular;
+}
+
+/* = Credit Application 
+-------------------------------------------------------------- */
+
+#gform_wrapper_2 {
+  font-family: nexa_lightregular;
+}
+#gform_wrapper_2 .gfield_label {
+  font-family: nexa_boldregular;
+}
+#gform_wrapper_2 .button.gform_next_button {
+  height: 30px;
+  width: 18%;
+  color: #fff;
+  background-color: #0071ba;
+  border: none;
+}
 
 /* = Contact Us
 -------------------------------------------------------------- */
@@ -681,8 +808,8 @@ html,body {
 .form .contact_meta {
   float: right;
   position: relative;
-  top: -138px;
-  left: 285px;
+  top: -217px;
+  left: 335px;
 }
 .form .contact_meta a {
   color: #fff;
@@ -694,6 +821,11 @@ html,body {
   margin-bottom: 0;
   padding-bottom: 0;
   text-align: right;
+}
+@media screen and (max-width: 768px) {
+  #contact_us .contact_meta.not_mobile {
+    display: none;
+  }
 }
 @media screen and (min-width: 769px) {
   .form .ginput_container textarea {
@@ -718,14 +850,37 @@ html,body {
   }
   .form input[type="submit"] {
     position: relative;
-    bottom: 88px;
+    bottom: 169px;
     width: 18%;
-    left: 628px; 
+    left: 481px; 
   }
   #contact_us {
     height: 382px;
   }
-} 
+  .form .contact_meta {
+    top: -216px;
+    left: 231px;
+  }
+  .form .contact_meta a {
+    font-size: 12px;
+  }
+  .footer_phone_email .footer_email p a {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 991px) {
+
+}
+@media screen  and (min-width: 992px){
+  .form input[type="submit"] {
+    left: 630px;
+  }
+}
+/*@media screen and (min-width: 1024px) {
+   .form input[type="submit"] {
+    left: 630px;
+   }
+ } */
 @media screen and (min-width: 1200px) {
   .form input[type="submit"] {
     left: 762px;
@@ -781,6 +936,7 @@ footer {
 }
 .footer_social_icons {
   padding-bottom: 20px;
+  float: right;
 }
 .circle {
   background-color: #fff;
@@ -818,9 +974,18 @@ footer {
 .designedby p a {
   color: #fff;
 }
+
+@media screen and (min-width: 320px) {
+  .footer_social_icons {
+    float: none;
+  }
+}
 @media screen and (min-width: 992px) {
   footer {
-    min-height: 162px;
+    height: 25%;
+  }
+  .page footer {
+    height: 28%;
   }
   .footer_menu {
     padding-top: 0;
@@ -843,13 +1008,20 @@ footer {
   .footer_menu ul li:last-child:after {
     content: "";
   }
+  .footer_phone_email {
+    width: 85%;
+    float: left;
+  }
   .footer_social_icons {
     position: relative;
-    top: 10px;
+    top: 3px;
+    width: 12%;
+    float: right;
   }
   .footer_social_icons a {
     font-size: 25px;
     padding: 16px;
+
   }
   .copyright {
     text-align: left;
@@ -876,6 +1048,13 @@ footer {
 
 
 
+/*Test myCode*/
 
+/** {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+}
+*/
 
 
